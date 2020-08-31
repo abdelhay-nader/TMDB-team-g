@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TMDB-team-g</string>
+    <string name="explore">Explore</string>
+    <string name="movies">Movies</string>
 </resources>

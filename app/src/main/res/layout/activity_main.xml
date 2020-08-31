@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="238dp"
         android:layout_height="48dp"
-        android:text="Explore"
+        android:text="@string/explore"
         android:textColor="#ffffff"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -26,7 +26,7 @@
         android:id="@+id/textView2"
         android:layout_width="166dp"
         android:layout_height="44dp"
-        android:text="Movies "
+        android:text="@string/movies"
         android:textColor="#ffffff"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,6 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041"
-        app:srcCompat="@drawable/popcorn" />
+        app:srcCompat="@drawable/popcorn"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
