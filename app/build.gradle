@@ -64,4 +64,8 @@ dependencies {
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+
+    //adding Picasso dependency
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }
