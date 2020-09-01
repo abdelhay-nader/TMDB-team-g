@@ -20,8 +20,8 @@ object MoviesRepository {
     fun requestMovieData (callBack : MovieCallback ) {
 
         if (this :: movieData.isInitialized){
-            callBack.onMovieReady(movieData)
-            return
+                callBack.onMovieReady(movieData)
+                return
         }
 
 
