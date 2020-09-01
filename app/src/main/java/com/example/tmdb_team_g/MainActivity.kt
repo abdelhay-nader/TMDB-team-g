@@ -1,8 +1,12 @@
 package com.example.tmdb_team_g
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telecom.Call
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Callback
 import retrofit2.Response
 
@@ -16,9 +20,13 @@ class MainActivity : AppCompatActivity() {
 
 
         call.enqueue(object : Callback<MovieResponse> {
+            @SuppressLint("WrongConstant")
             override fun onResponse(call: retrofit2.Call<MovieResponse>, response: Response<MovieResponse>) {
 
                 val movieResourseList : List<resultsList> = response.body()!!.results
+                recyclerview_tmdb.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayout.VERTICAL,false)
+                recyclerview_tmdb.adapter=MoviesAdapter(movieResourseList)
+
 
             }
 

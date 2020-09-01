@@ -4,10 +4,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-//import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+
 import kotlinx.android.synthetic.main.item_api_movie.view.*
-/*
+
 class MoviesAdapter (private val moviesList: List<resultsList>) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
 
@@ -29,8 +30,8 @@ class MoviesAdapter (private val moviesList: List<resultsList>) : RecyclerView.A
 
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val movieTitle : TextView  = itemView.item_MovieTitle_icon
-        val movieImage : ImageView = itemView.item_MovieImage_icon
+        val movieTitle : TextView  = itemView.title
+        val movieImage : ImageView = itemView.poster
 
         fun bindMovieData (movie : resultsList){
             movieTitle.text = movie.original_title
@@ -40,4 +41,4 @@ class MoviesAdapter (private val moviesList: List<resultsList>) : RecyclerView.A
 
     }
 
-}*/
+}

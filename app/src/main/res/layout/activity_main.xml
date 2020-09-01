@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#A3000000"
     tools:context=".MainActivity">
 
     <ImageView
@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.934"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112"
+        app:layout_constraintVertical_bias="0.079"
         app:srcCompat="@drawable/logo2" />
 
     <TextView
@@ -51,10 +51,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_tmdb"
         android:layout_width="match_parent"
-        android:layout_height="584dp"
+        android:layout_height="554dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="textView2" />
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

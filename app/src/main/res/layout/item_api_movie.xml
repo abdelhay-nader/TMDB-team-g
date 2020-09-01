@@ -6,10 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="286dp"
+        android:layout_height="36dp"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.907"
+        tools:text="title" />
+
     <ImageView
         android:id="@+id/poster"
-        android:layout_width="286dp"
-        android:layout_height="391dp"
+        android:layout_width="288dp"
+        android:layout_height="496dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -18,16 +33,4 @@
         app:layout_constraintVertical_bias="0.047"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="286dp"
-        android:layout_height="36dp"
-        tools:text="title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>
