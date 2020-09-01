@@ -7,20 +7,32 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="168dp"
+        android:layout_height="66dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112"
+        app:srcCompat="@drawable/logo2" />
+
     <TextView
         android:id="@+id/textView"
-        android:layout_width="238dp"
-        android:layout_height="48dp"
+        android:layout_width="198dp"
+        android:layout_height="53dp"
         android:text="@string/explore"
         android:textColor="#ffffff"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <TextView
         android:id="@+id/textView2"
@@ -34,29 +46,15 @@
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.132" />
+        app:layout_constraintVertical_bias="0.11" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_tmdb"
         android:layout_width="match_parent"
-        android:layout_height="579dp"
+        android:layout_height="584dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="textView2"
-        app:layout_constraintVertical_bias="0.985" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="111dp"
-        android:layout_height="98dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.946"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041"
-        app:srcCompat="@drawable/popcorn"
-         />
+        app:layout_constraintTop_toTopOf="textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
