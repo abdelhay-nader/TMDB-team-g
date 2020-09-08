@@ -6,29 +6,40 @@ import android.os.Bundle
 import android.telecom.Call
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 
-class MainActivity : AppCompatActivity(), MoviesRepository.MovieCallback {
+class MainActivity : AppCompatActivity() {
+
+    private val mainViewModel: MainViewModel by viewModels()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        requestMovieData()
+        mainViewModel.movieLiveData.observe(this,Observer{bindMovieData(it)})
+
+        mainViewModel.onError.observe(this, Observer{handelMovieError(it)})
+
+        mainViewModel.loadMovieData()
 
 
+      //  requestMovieData()
     }
 
-    private fun requestMovieData() {
-
-
-        MoviesRepository.requestMovieData( this)
-
-
-
-    }
+//    private fun requestMovieData() {
+//
+//
+//        MoviesRepository.requestMovieData( this)
+//
+//
+//
+//    }
 
 
 
@@ -45,13 +56,13 @@ class MainActivity : AppCompatActivity(), MoviesRepository.MovieCallback {
 
     }
 
-    override fun onMovieReady(Movie: List<resultsList>) {
-        bindMovieData(Movie)
-    }
-
-    override fun onMovieLoadingError(errorMsg: String) {
+    private fun handelMovieError(errorMsg: String) {
         Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_LONG).show()
     }
+
+
+
+
 
 
 
