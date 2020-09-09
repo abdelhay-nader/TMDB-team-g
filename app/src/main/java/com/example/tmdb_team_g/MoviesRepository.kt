@@ -1,8 +1,7 @@
 package com.example.tmdb_team_g
 
 
-
-
+import android.content.Context
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -10,9 +9,15 @@ import retrofit2.Response
 
 object MoviesRepository {
 
+
     private val apiServices : ApiServices by lazy{
+
         RetrofitClient.getClient().create(ApiServices::class.java)
+
     }
+
+
+    private lateinit var appDatabase: AppDatabase
 
 
     private lateinit var movieData : List<resultsList>
@@ -24,9 +29,6 @@ object MoviesRepository {
 ////                return
 ////        }
 
-
-
-
         apiServices.getMovieByApi("099a5418f2bec70523fe74e21f45b456").
         enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
@@ -34,6 +36,9 @@ object MoviesRepository {
                 println("OnResponseCalled")
                 if (response.isSuccessful){
                     movieData = response.body()!!.results
+
+                    appDatabase.movieDao().addMovies(movieData)
+
                     callBack.onMovieReady(movieData)
                 } else if (response.code() in 400..404){
                     val msg = "Simple Error, please try again"
@@ -47,6 +52,9 @@ object MoviesRepository {
                 //call.cancel()
                 val msg = "Error while getting Movie Data"
                 callBack.onMovieLoadingError(msg)
+
+                callBack.onMovieReady(appDatabase.movieDao().getAllMovies())
+
             }
         })
 
@@ -54,36 +62,15 @@ object MoviesRepository {
     }
 
 
-
-
-
-
-
-
-
-
+    fun createDatabase(context: Context) {
+        appDatabase = AppDatabase.getDatabase(context)
+    }
 
 
     interface MovieCallback {
         fun onMovieReady(Movie: List<resultsList>)
         fun onMovieLoadingError(errorMsg: String)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

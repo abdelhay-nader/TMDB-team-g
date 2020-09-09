@@ -1,10 +1,12 @@
 package com.example.tmdb_team_g
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel(), MoviesRepository.MovieCallback {
+class MainViewModel(application: Application) : AndroidViewModel(application), MoviesRepository.MovieCallback {
 
 
     private val _movieLiveData: MutableLiveData<List<resultsList>> = MutableLiveData()
@@ -18,6 +20,9 @@ class MainViewModel : ViewModel(), MoviesRepository.MovieCallback {
 
     private lateinit var movieData: List<resultsList>
 
+    init {
+        MoviesRepository.createDatabase(application)
+    }
 
 
     fun loadMovieData() {
