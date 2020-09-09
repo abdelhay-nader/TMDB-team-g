@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -66,6 +67,11 @@ dependencies {
     // This is the dependency of the ktx
     implementation "androidx.activity:activity-ktx:1.1.0"
     //
+    //
+    //Room database
+    implementation "androidx.room:room-runtime:2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
+
 
 
 
