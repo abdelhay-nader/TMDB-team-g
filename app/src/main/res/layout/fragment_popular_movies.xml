@@ -7,7 +7,7 @@
     tools:context=".Fragments.PopularMovies">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myRecycleView_API_Movie"
+        android:id="@+id/recyclerview_tmdb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"

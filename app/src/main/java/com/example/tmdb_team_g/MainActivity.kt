@@ -15,21 +15,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val mainViewModel: MainViewModel by viewModels()
+    //private val mainViewModel: MainViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainViewModel.movieLiveData.observe(this,Observer{bindMovieData(it)})
+       /* mainViewModel.movieLiveData.observe(this,Observer{bindMovieData(it)})
 
         mainViewModel.onError.observe(this, Observer{handelMovieError(it)})
 
         mainViewModel.loadMovieData()
-
-
-      //  requestMovieData()
+    requestMovieData()*/
     }
 
 //    private fun requestMovieData() {
@@ -40,25 +38,18 @@ class MainActivity : AppCompatActivity() {
 //
 //
 //    }
-
-
-
-
-
-
-
-    @SuppressLint("WrongConstant")
-    fun bindMovieData (movie : List<resultsList> ) {
-
-        recyclerview_tmdb.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayout.VERTICAL,false)
-        recyclerview_tmdb.adapter=MoviesAdapter(movie)
-
-
-    }
-
-    private fun handelMovieError(errorMsg: String) {
-        Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_LONG).show()
-    }
+// @SuppressLint("WrongConstant")
+//    fun bindMovieData (movie : List<resultsList> ) {
+//
+//        recyclerview_tmdb.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayout.VERTICAL,false)
+//        recyclerview_tmdb.adapter=MoviesAdapter(movie)
+//
+//
+//    }
+//
+//    private fun handelMovieError(errorMsg: String) {
+//        Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_LONG).show()
+//    }
 
 
 
