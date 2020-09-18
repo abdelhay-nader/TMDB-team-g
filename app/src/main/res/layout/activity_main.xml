@@ -62,5 +62,15 @@
         app:navGraph= "@navigation/main_nav_graph"
 
         />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        app:menu="@menu/main_menu"
+        android:id="@+id/main_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
