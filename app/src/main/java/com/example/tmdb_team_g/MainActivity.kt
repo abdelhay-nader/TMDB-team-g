@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
        /* mainViewModel.movieLiveData.observe(this,Observer{bindMovieData(it)})
 
         mainViewModel.onError.observe(this, Observer{handelMovieError(it)})
