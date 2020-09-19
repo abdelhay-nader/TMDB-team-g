@@ -21,6 +21,7 @@ object MoviesRepository {
 
 
     private lateinit var movieData : List<resultsList>
+    private lateinit var topMovieData :List<resultsList2>
 
     fun requestMovieData (callBack : MovieCallback ) {
 
@@ -62,6 +63,50 @@ object MoviesRepository {
     }
 
 
+    fun requestTopMovieData(callBack : MovieCallback){
+
+        apiServices.getTopMovieByApi("099a5418f2bec70523fe74e21f45b456").
+        enqueue(object : Callback<TopMovieResponse> {
+            override fun onResponse(
+                call: Call<TopMovieResponse>,
+                response: Response<TopMovieResponse>
+            ) {
+                if (response.isSuccessful){
+                    topMovieData = response.body()!!.results
+                    callBack.onTopMovieReady(topMovieData)
+                } else if (response.code() in 400..404){
+                    val msg = "Simple Error, please try again"
+                    callBack.onMovieLoadingError(msg)
+                }
+
+
+
+
+            }
+
+            override fun onFailure(call: Call<TopMovieResponse>, t: Throwable) {
+
+                val msg = "Error while getting Top Movie Data"
+                callBack.onMovieLoadingError(msg)
+
+
+
+            }
+
+        })
+
+
+
+
+
+    }
+
+
+
+
+
+
+
     fun createDatabase(context: Context) {
         appDatabase = AppDatabase.getDatabase(context)
     }
@@ -69,6 +114,7 @@ object MoviesRepository {
 
     interface MovieCallback {
         fun onMovieReady(Movie: List<resultsList>)
+        fun onTopMovieReady(TopMovie : List<resultsList2>)
         fun onMovieLoadingError(errorMsg: String)
     }
 

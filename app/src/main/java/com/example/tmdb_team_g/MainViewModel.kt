@@ -46,6 +46,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application), M
         _movieLiveData.value = movieData
     }
 
+    override fun onTopMovieReady(TopMovie: List<resultsList2>) {
+        TODO("Not yet implemented")
+    }
+
     override fun onMovieLoadingError(errorMsg: String) {
         _onError.value = errorMsg
     }
