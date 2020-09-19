@@ -13,12 +13,19 @@ class MainViewModel(application: Application) : AndroidViewModel(application), M
     val movieLiveData: LiveData<List<resultsList>>
         get() = _movieLiveData
 
+    private val _topMovieLiveData :MutableLiveData<List<resultsList2>> = MutableLiveData()
+    val topMovieLiveData : LiveData<List<resultsList2>>
+        get() = _topMovieLiveData
+
+
 
     private val _onError: MutableLiveData<String> = MutableLiveData()
     val onError: LiveData<String>
         get() = _onError
 
     private lateinit var movieData: List<resultsList>
+
+    private lateinit var topMovieData : List<resultsList2>
 
     init {
         MoviesRepository.createDatabase(application)
@@ -32,8 +39,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application), M
             return
         }
 
+
+
+
         MoviesRepository.requestMovieData( this)
 
+    }
+
+    fun loadTopMovieData(){
+
+        if (this :: topMovieData.isInitialized){
+            _topMovieLiveData.value = topMovieData
+            return
+        }
+
+        MoviesRepository.requestTopMovieData(this)
     }
 
 
@@ -47,7 +67,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application), M
     }
 
     override fun onTopMovieReady(TopMovie: List<resultsList2>) {
-        TODO("Not yet implemented")
+        topMovieData = TopMovie
+        _topMovieLiveData.value = topMovieData
+
     }
 
     override fun onMovieLoadingError(errorMsg: String) {
