@@ -89,7 +89,7 @@ object MoviesRepository {
 
             override fun onFailure(call: Call<TopMovieResponse>, t: Throwable) {
 
-                val msg = "Error while getting Top Rated Movies"
+                val msg = "Error while getting Movie Data"
                 callBack.onMovieLoadingError(msg)
 
                 callBack.onTopMovieReady(appDatabase.topMovieDao().getAllTopMovies())
