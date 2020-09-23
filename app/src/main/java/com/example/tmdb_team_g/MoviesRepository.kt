@@ -73,6 +73,9 @@ object MoviesRepository {
             ) {
                 if (response.isSuccessful){
                     topMovieData = response.body()!!.results
+
+                    appDatabase.topMovieDao().addTopMovies(topMovieData)
+
                     callBack.onTopMovieReady(topMovieData)
                 } else if (response.code() in 400..404){
                     val msg = "Simple Error, please try again"
@@ -86,9 +89,10 @@ object MoviesRepository {
 
             override fun onFailure(call: Call<TopMovieResponse>, t: Throwable) {
 
-                val msg = "Error while getting Top Movie Data"
+                val msg = "Error while getting Top Rated Movies"
                 callBack.onMovieLoadingError(msg)
 
+                callBack.onTopMovieReady(appDatabase.topMovieDao().getAllTopMovies())
 
 
             }

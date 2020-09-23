@@ -5,10 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [resultsList::class], version = 1, exportSchema = false)
+@Database(entities = [resultsList::class,resultsList2::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
  abstract fun movieDao() : MovieDao
+ abstract fun topMovieDao() : TopMovieDao
 
 
     companion object {
@@ -21,7 +22,7 @@ abstract class AppDatabase : RoomDatabase() {
 
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext, AppDatabase::class.java, "movie_db"
-            ).allowMainThreadQueries().build()
+            ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
 
             return INSTANCE!!
         }
