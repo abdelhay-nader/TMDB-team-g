@@ -31,7 +31,7 @@ class PopularMovies : Fragment() {
        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
        mainViewModel.movieLiveData.observe(viewLifecycleOwner,{
            recyclerview_tmdb.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL,false)
-           recyclerview_tmdb.adapter= MoviesAdapter(it)
+           recyclerview_tmdb.adapter=  context?.let { it1 -> MoviesAdapter(it1,it) }
 
        })
         mainViewModel.onError.observe(viewLifecycleOwner,{
