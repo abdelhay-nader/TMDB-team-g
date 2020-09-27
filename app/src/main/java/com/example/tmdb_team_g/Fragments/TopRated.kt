@@ -35,7 +35,7 @@ class TopRated : Fragment() {
             myRecycleView_Top_API_Movie.layoutManager = LinearLayoutManager(context,
                 LinearLayout.VERTICAL,false)
 
-            myRecycleView_Top_API_Movie.adapter = TopMoviesAdapter(it)
+            myRecycleView_Top_API_Movie.adapter = context?.let { it1 -> TopMoviesAdapter(it1,it) }
 
         })
 

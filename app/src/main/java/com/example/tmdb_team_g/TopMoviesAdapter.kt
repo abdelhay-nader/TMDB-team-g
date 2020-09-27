@@ -1,5 +1,7 @@
 package com.example.tmdb_team_g
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_top_api_movie.view.*
 
-class TopMoviesAdapter (private val topMoviesList: List<resultsList2>) : RecyclerView.Adapter<TopMoviesAdapter.TopMovieViewHolder>()
+class TopMoviesAdapter (val mContext: Context, private val topMoviesList: List<resultsList2>) : RecyclerView.Adapter<TopMoviesAdapter.TopMovieViewHolder>()
 {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -42,6 +44,44 @@ class TopMoviesAdapter (private val topMoviesList: List<resultsList2>) : Recycle
             Picasso.get().load("https://image.tmdb.org/t/p/w500/${topMovie.poster_path}").into(topMovieImage)
 
         }
+
+        init {
+            itemView.setOnClickListener(View.OnClickListener {
+                val pos = adapterPosition
+                if (pos != RecyclerView.NO_POSITION) {
+                    val clickedDataItem: resultsList2 = topMoviesList.get(pos)
+                    val intent = Intent(mContext, DetailsActivity::class.java)
+
+                    intent.putExtra("overView","${clickedDataItem.overview}")
+                    intent.putExtra("releaseDate","${clickedDataItem.release_date}")
+                    intent.putExtra("original_language","${clickedDataItem.original_language}")
+                    intent.putExtra("poster_path", "${clickedDataItem.poster_path}")
+
+
+
+                    mContext.startActivity(intent)
+
+
+                }
+            })
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
