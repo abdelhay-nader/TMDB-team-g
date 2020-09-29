@@ -11,12 +11,15 @@
         android:id="@+id/imageView4"
         android:layout_width="168dp"
         android:layout_height="66dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_container_activityMain"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
-        app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065"
+
         app:srcCompat="@drawable/logo2" />
 
     <TextView
@@ -24,44 +27,47 @@
         android:layout_width="198dp"
         android:layout_height="53dp"
         android:text="@string/explore"
+
         android:textColor="#ffffff"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintBottom_toTopOf="@id/textView2"
+        app:layout_constraintEnd_toEndOf="@id/imageView4"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="160dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+         />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="166dp"
         android:layout_height="44dp"
         android:text="@string/movies"
+        android:layout_marginEnd="17dp"
         android:textColor="#ffffff"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintEnd_toStartOf="@id/imageView4"
+        android:layout_marginBottom="600dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11" />
+        app:layout_constraintTop_toBottomOf="@id/textView"
+/>
 
     <fragment
         android:id="@+id/main_container_activityMain"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="413dp"
-        android:layout_height="599dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="411dp"
+        android:layout_height="578dp"
+        android:layout_marginTop="40dp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView4"
 
-        app:layout_constraintVertical_bias="0.066"
+
         app:navGraph="@navigation/main_nav_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
