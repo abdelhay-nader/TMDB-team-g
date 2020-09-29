@@ -1,7 +1,8 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.tmdb_team_g.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_details.*
 

@@ -1,7 +1,14 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.Repository
 
 
 import android.content.Context
+import com.example.tmdb_team_g.Database.AppDatabase
+import com.example.tmdb_team_g.Network.ApiServices
+import com.example.tmdb_team_g.Network.RetrofitClient
+import com.example.tmdb_team_g.Response.MovieResponse
+import com.example.tmdb_team_g.Response.TopMovieResponse
+import com.example.tmdb_team_g.Response.resultsList
+import com.example.tmdb_team_g.Response.resultsList2
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +30,7 @@ object MoviesRepository {
     private lateinit var movieData : List<resultsList>
     private lateinit var topMovieData :List<resultsList2>
 
-    fun requestMovieData (callBack : MovieCallback ) {
+    fun requestMovieData (callBack : MovieCallback) {
 
 //        if (this :: movieData.isInitialized){
 ////                callBack.onMovieReady(movieData)

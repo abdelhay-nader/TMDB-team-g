@@ -1,8 +1,9 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.Dao
 
 import androidx.room.*
+import com.example.tmdb_team_g.Response.resultsList2
 
-    @Dao
+@Dao
     interface TopMovieDao {
 
         @Insert(onConflict = OnConflictStrategy.REPLACE)

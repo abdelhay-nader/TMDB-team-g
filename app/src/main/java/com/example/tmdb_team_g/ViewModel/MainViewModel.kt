@@ -1,12 +1,15 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.tmdb_team_g.Repository.MoviesRepository
+import com.example.tmdb_team_g.Response.resultsList
+import com.example.tmdb_team_g.Response.resultsList2
 
-class MainViewModel(application: Application) : AndroidViewModel(application), MoviesRepository.MovieCallback {
+class MainViewModel(application: Application) : AndroidViewModel(application),
+    MoviesRepository.MovieCallback {
 
 
     private val _movieLiveData: MutableLiveData<List<resultsList>> = MutableLiveData()
@@ -42,7 +45,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application), M
 
 
 
-        MoviesRepository.requestMovieData( this)
+        MoviesRepository.requestMovieData(this)
 
     }
 

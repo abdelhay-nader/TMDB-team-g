@@ -1,4 +1,4 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.Adapters
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tmdb_team_g.Activity.DetailsActivity
+import com.example.tmdb_team_g.R
+import com.example.tmdb_team_g.Response.resultsList2
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_top_api_movie.view.*
 
@@ -16,14 +19,14 @@ class TopMoviesAdapter (val mContext: Context, private val topMoviesList: List<r
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): TopMoviesAdapter.TopMovieViewHolder {
+    ): TopMovieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val movieViewLayout = layoutInflater.inflate(R.layout.item_top_api_movie, parent, false)
         return TopMovieViewHolder(movieViewLayout)
 
     }
 
-    override fun onBindViewHolder(holder: TopMoviesAdapter.TopMovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TopMovieViewHolder, position: Int) {
         holder.bindTopMovieData(topMoviesList.get(position))
 
     }

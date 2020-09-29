@@ -1,4 +1,4 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.Network
 
 
 import okhttp3.OkHttpClient

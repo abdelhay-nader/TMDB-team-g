@@ -1,4 +1,4 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.Adapters
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tmdb_team_g.Activity.DetailsActivity
+import com.example.tmdb_team_g.R
+import com.example.tmdb_team_g.Response.resultsList
 import com.squareup.picasso.Picasso
 
 import kotlinx.android.synthetic.main.item_api_movie.view.*

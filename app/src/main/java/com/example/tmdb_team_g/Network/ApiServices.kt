@@ -1,5 +1,7 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.Network
 
+import com.example.tmdb_team_g.Response.MovieResponse
+import com.example.tmdb_team_g.Response.TopMovieResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

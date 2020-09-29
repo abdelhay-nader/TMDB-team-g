@@ -1,6 +1,7 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.Dao
 
 import androidx.room.*
+import com.example.tmdb_team_g.Response.resultsList
 
 @Dao
 interface MovieDao {

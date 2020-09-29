@@ -11,8 +11,8 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.tmdb_team_g.MainViewModel
-import com.example.tmdb_team_g.MoviesAdapter
+import com.example.tmdb_team_g.ViewModel.MainViewModel
+import com.example.tmdb_team_g.Adapters.MoviesAdapter
 import com.example.tmdb_team_g.R
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
 

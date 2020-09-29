@@ -11,9 +11,9 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.tmdb_team_g.MainViewModel
+import com.example.tmdb_team_g.ViewModel.MainViewModel
 import com.example.tmdb_team_g.R
-import com.example.tmdb_team_g.TopMoviesAdapter
+import com.example.tmdb_team_g.Adapters.TopMoviesAdapter
 import kotlinx.android.synthetic.main.fragment_top_rated.*
 
 class TopRated : Fragment() {

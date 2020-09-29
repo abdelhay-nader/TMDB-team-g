@@ -1,14 +1,15 @@
-package com.example.tmdb_team_g
+package com.example.tmdb_team_g.Response
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-data class TopMovieResponse (
-    val results : List<resultsList2>
-)
+data class MovieResponse(
 
-@Entity(tableName = "movie_table_2")
-data class resultsList2 (
+    val results : List<resultsList>
+
+)
+@Entity(tableName = "movie_table")
+data class resultsList (
 
     @PrimaryKey
     val id : Long,
@@ -19,6 +20,5 @@ data class resultsList2 (
     val vote_average : Float,
     val overview : String,
     val release_date : String
-
 
 )
