@@ -39,7 +39,7 @@ class TopRated : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
-
+        // observation
         mainViewModel.topMovieLiveData.observe(viewLifecycleOwner,{
 
             myRecycleView_Top_API_Movie.layoutManager = LinearLayoutManager(context,
@@ -53,6 +53,7 @@ class TopRated : Fragment() {
             Toast.makeText(context,it, Toast.LENGTH_LONG).show()
         })
 
+        // requesting the first page of the api
         mainViewModel.loadTopMovieData()
 
 
@@ -65,16 +66,20 @@ class TopRated : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
+    // the onScroll listner.
         myRecycleView_Top_API_Movie.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 if (!myRecycleView_Top_API_Movie.canScrollVertically(1))
+                // request new page and append it on the previous.
                     mainViewModel.loadNextTopMoviePage()
                 super.onScrollStateChanged(recyclerView, newState)
             }
         })
 
-
+// when our recyclerView Scrolling goes to the end, it request a new page from the api and append it to the previous pages
+        // and then it returns to the recyclerView the new list, and because of that it takes us all the way to the top,
+        // and that is why we made this bottom which allows us to go back to the position we were at before the recycler takes
+        // us to the top. So,for a conclusion, when the recycler takes us to the top we press the button one time to get us back to our position.
         buttonDown.setOnClickListener {
 
 

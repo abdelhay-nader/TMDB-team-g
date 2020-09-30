@@ -32,10 +32,7 @@ object MoviesRepository {
 
     fun requestMovieData (callBack : MovieCallback) {
 
-//        if (this :: movieData.isInitialized){
-////                callBack.onMovieReady(movieData)
-////                return
-////        }
+
 
         apiServices.getMovieByApi("099a5418f2bec70523fe74e21f45b456",page=1).
         enqueue(object : Callback<MovieResponse> {
@@ -74,10 +71,7 @@ object MoviesRepository {
 
     fun requestMovieData2 (movieDataaa: ArrayList<resultsList>, callBack : MovieCallback, page1:Int ) {
 
-//            if (this :: movieData.isInitialized){
-//                callBack.onMovieReady(movieData)
-//                return
-//            }
+
 
 
         if (page1 == 501) {callBack.onMovieReady(movieDataaa)}
@@ -123,26 +117,6 @@ object MoviesRepository {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     fun requestTopMovieData(callBack : MovieCallback){
 
         apiServices.getTopMovieByApi("099a5418f2bec70523fe74e21f45b456",page=1).
@@ -178,9 +152,6 @@ object MoviesRepository {
             }
 
         })
-
-
-
 
 
     }
@@ -220,17 +191,6 @@ object MoviesRepository {
                 })
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

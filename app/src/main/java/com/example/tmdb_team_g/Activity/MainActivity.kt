@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    //private val mainViewModel: MainViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,34 +20,10 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(main_bottom_bar,navController)
 
 
-       /* mainViewModel.movieLiveData.observe(this,Observer{bindMovieData(it)})
 
-        mainViewModel.onError.observe(this, Observer{handelMovieError(it)})
-
-        mainViewModel.loadMovieData()
-       requestMovieData()*/
     }
 
-//    private fun requestMovieData() {
-//
-//
-//        MoviesRepository.requestMovieData( this)
-//
-//
-//
-//    }
-// @SuppressLint("WrongConstant")
-//    fun bindMovieData (movie : List<resultsList> ) {
-//
-//        recyclerview_tmdb.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayout.VERTICAL,false)
-//        recyclerview_tmdb.adapter=MoviesAdapter(movie)
-//
-//
-//    }
-//
-//    private fun handelMovieError(errorMsg: String) {
-//        Toast.makeText(this@MainActivity, errorMsg, Toast.LENGTH_LONG).show()
-//    }
+
 
 
 

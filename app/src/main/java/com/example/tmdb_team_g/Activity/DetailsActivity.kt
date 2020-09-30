@@ -12,17 +12,17 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_details)
 
 
-
+    // using the bundle to get the data transferred by the intent.
         var bundle: Bundle? = intent.extras
 
-
+        // making new variables that equal the data transferred
         var overView: String? = bundle?.getString("overView")
         var releaseDate: String? = bundle?.getString("releaseDate")
         var original_language: String? = bundle?.getString("original_language")
         var poster: String? = bundle?.getString("poster_path")
         var myPoster: String? = "https://image.tmdb.org/t/p/w500/${poster}"
 
-
+    // displaying the data into the UI (activity_details)
         myOverView.text = overView
         myReleaseDate.text = releaseDate
         myOriginal_language.text = original_language
