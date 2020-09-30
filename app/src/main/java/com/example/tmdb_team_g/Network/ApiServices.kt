@@ -14,7 +14,7 @@ interface ApiServices {
 
         @Query("api_key") api_key: String,
         @Query("language") language: String = "en-US",
-        @Query("page") page: Int = 1
+        @Query("page") page: Int
 
     ) : Call<MovieResponse>
 
@@ -23,7 +23,7 @@ interface ApiServices {
     fun getTopMovieByApi(
         @Query("api_key") api_key: String,
         @Query("language") language: String = "en-US",
-        @Query("page") page: Int = 1
+        @Query("page") page: Int
 
     ) : Call<TopMovieResponse>
 

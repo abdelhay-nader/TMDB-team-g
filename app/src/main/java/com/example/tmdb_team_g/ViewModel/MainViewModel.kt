@@ -12,6 +12,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application),
     MoviesRepository.MovieCallback {
 
 
+    var page:Int = 1
+
+
     private val _movieLiveData: MutableLiveData<List<resultsList>> = MutableLiveData()
     val movieLiveData: LiveData<List<resultsList>>
         get() = _movieLiveData
@@ -42,9 +45,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application),
             return
         }
 
-
-
-
         MoviesRepository.requestMovieData(this)
 
     }
@@ -59,6 +59,24 @@ class MainViewModel(application: Application) : AndroidViewModel(application),
         MoviesRepository.requestTopMovieData(this)
     }
 
+
+
+    fun loadNextMoviePage(){
+
+        var page= page++
+
+        MoviesRepository.requestMovieData2(movieData as ArrayList<resultsList>,this,page)
+
+    }
+
+
+    fun loadNextTopMoviePage(){
+
+        var page= page++
+
+        MoviesRepository.requestTopMovieData2(topMovieData as ArrayList<resultsList2>,this,page)
+
+    }
 
 
 

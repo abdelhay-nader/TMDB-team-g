@@ -11,12 +11,22 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tmdb_team_g.ViewModel.MainViewModel
 import com.example.tmdb_team_g.R
 import com.example.tmdb_team_g.Adapters.TopMoviesAdapter
+import kotlinx.android.synthetic.main.fragment_popular_movies.*
 import kotlinx.android.synthetic.main.fragment_top_rated.*
+import kotlinx.android.synthetic.main.fragment_top_rated.buttonDown
 
 class TopRated : Fragment() {
+
+
+    val x = 10
+    var s = x
+
+    var i : Int = 1
+
 
 
     private lateinit var mainViewModel : MainViewModel
@@ -51,7 +61,40 @@ class TopRated : Fragment() {
 
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+        myRecycleView_Top_API_Movie.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                if (!myRecycleView_Top_API_Movie.canScrollVertically(1))
+                    mainViewModel.loadNextTopMoviePage()
+                super.onScrollStateChanged(recyclerView, newState)
+            }
+        })
+
+
+        buttonDown.setOnClickListener {
+
+
+            if(i==1) myRecycleView_Top_API_Movie.smoothScrollToPosition(28 + s)
+            if(i==2) myRecycleView_Top_API_Movie.smoothScrollToPosition(28 + s)
+            if(i in 3..500) {
+
+                s=s+20
+                myRecycleView_Top_API_Movie.smoothScrollToPosition(28 + s)
+
+            }
+
+            i++
+        }
+
+
+
+
+
+
         super.onViewCreated(view, savedInstanceState)
     }
 
